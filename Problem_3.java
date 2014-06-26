@@ -27,7 +27,7 @@ class Problem_3{
         }
         else{
             boolean result = true;
-            for(long i = 3; i < testNum; i+=2){
+            for(long i = 3; i < Math.sqrt(testNum); i+=2){
                 if(testNum % i == 0){
                     result = false;
                     break;
@@ -38,18 +38,19 @@ class Problem_3{
     }
     
     public static long get_greatest_prime_factor(long testNum){
-        long largestPrimeFactor = 0;
-        int i = 2;
-        while(testNum >= 1){
-            for(; i <= testNum; i++){
-                if(is_prime(i)){
-                    if(is_divisible(i)){
-                        largestPrimeFactor = i;
-                        testNum /= largestPrimeFactor;
-                    }
+        int max = 0;
+
+        while(testNum != 1){
+            int i = 2;
+            while(i <= testNum) {
+                if(is_prime(i) && testNum % i ==0){
+                    if( i > max) max = i;
+                    testNum /= i;
+                    break;
                 }
+                ++i;
             }
         }
-        return largestPrimeFactor;
+        return max;
     }
 }

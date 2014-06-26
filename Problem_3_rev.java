@@ -5,7 +5,7 @@ class Problem_3_rev{
 		long largestPF = MAX_NUMBER;
 
 		for(long testNum = MAX_NUMBER; testNum > 1; testNum -=2){
-			if(is_divisible(testNum) & is_prime(testNum)){
+			if(MAX_NUMBER % testNum == 0 & is_prime(testNum)){
 				largestPF = testNum;
 				break;
 			}
