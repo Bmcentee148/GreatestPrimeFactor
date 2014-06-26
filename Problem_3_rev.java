@@ -37,8 +37,8 @@ class Problem_3_rev{
         
         while(num_to_factor != 1){
             int num = 2;
-            while(num < num_to_factor){
-                if(is_prime(num) && num_to_factor % num == 0){
+            while(num <= num_to_factor){
+                if(is_prime(num) && is_divisible(num,num_to_factor)){
                     if(num > max) max = num;
                     num_to_factor /= num;
                     break;
